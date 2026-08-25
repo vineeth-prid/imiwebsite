@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — IMI Branding Guidelines */
+  --color-oak: #421e14;
+  --color-sandly: #f7ef63;
+  --color-tangerine: #ff9966;
+  --color-lime: #ceff79;
+  --color-frenchpass: #baf1fe;
+  --color-rose: #ffc5e5;
+  --color-alabaster: #f2ede3;
+
+  /* Landing page reference */
+  --color-navy: #101b45;
+  --color-navy-muted: #4a5478;
+  --color-brand-red: #e3233e;
+  --color-cta-from: #fa3a2d;
+  --color-cta-to: #fb1b45;
+  --color-canvas: #f1f2f7;
+  --color-hairline: #d8dae5;
+
+  --font-sans: "Switzer", "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-barlow), "Barlow", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible, brand-coloured focus for every interactive element. */
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 2px solid #e3233e;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@keyframes imi-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.imi-rise {
+  animation: imi-rise 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .imi-rise,
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
